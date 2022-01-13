@@ -11,6 +11,10 @@ import { Search } from '../components/Search';
 import { SelectCategory } from '../components/Search';
 
 const Home = () => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> e72a2d9be160f8641ab2d3129a677fe9ac0fd756
   const { isAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
   const [meals, setMeals] = useState([]);
   const [result, setResult] = useState([]);
