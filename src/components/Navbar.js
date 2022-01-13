@@ -53,7 +53,10 @@ const Navbar = ({ sidebar }) => {
             </p>
             <p className='leading-4 sm:hidden'>Hello, guest!</p>
             <div>
-              <Link className='underline px-2 mx-1 py-1' to='/login'>
+              <Link
+                className='underline px-2 mx-1 py-1 whitespace-nowrap	'
+                to='/login'
+              >
                 Sign in
               </Link>
               <span>or</span>
