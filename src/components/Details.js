@@ -18,7 +18,7 @@ const Details = () => {
       setRecipes(mealList);
       setMeal(mealList.find((recipe) => recipe.id === mealId));
       setSastojci(
-        mealList.find((recipe) => recipe.id === mealId).sastojci.split(/[,:/]+/)
+        mealList.find((recipe) => recipe.id === mealId).sastojci.split(/[,:]+/)
       );
       setPriprema(
         mealList.find((recipe) => recipe.id === mealId).priprema.split(/[/]+/)
