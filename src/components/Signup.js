@@ -5,9 +5,12 @@ import { useNavigate } from 'react-router';
 import { auth, db } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
+import Obavestenje from './Obavestenje';
 
 const Signup = () => {
-  const { isAuth, setIsAuth, prikaziObavestenje } = useGlobalContext();
+  const { isAuth, setIsAuth, prikaziObavestenje, obavestenje } =
+    useGlobalContext();
+
   const navigate = useNavigate();
 
   const [registerEmail, setRegisterEmail] = useState('');
@@ -22,16 +25,21 @@ const Signup = () => {
       auth,
       registerEmail,
       registerPassword
-    ).then(() => {
-      setIsAuth(true);
-      navigate('/');
-    });
+    )
+      .then(() => {
+        setIsAuth(true);
+        navigate('/');
+      })
+      .catch((error) => {
+        prikaziObavestenje(true, error.code);
+      });
   };
 
   // const logout = async () => {};
 
   return (
     <div className='text-center h-screen flex flex-col gap-4 items-center justify-center '>
+      <Obavestenje obavestenje={obavestenje} />
       {/* // <div className='h-screen flex items-center justify-center relative'> */}
       {/* <div className='flex-col px-12 py-12 max-w-3xl mx-auto shadow-xl rounded-2xl'> */}
       <h1 className='font-light text-center my-2 text-4xl'>Register</h1>

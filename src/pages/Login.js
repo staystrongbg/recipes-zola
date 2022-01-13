@@ -4,8 +4,10 @@ import Input from '../components/Input';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { auth } from '../firebase-config';
+import Obavestenje from '../components/Obavestenje';
 
 const Login = () => {
+  const { prikaziObavestenje, obavestenje } = useGlobalContext();
   const navigate = useNavigate();
   if (auth.email) {
     navigate('/');
@@ -20,16 +22,21 @@ const Login = () => {
   const userLogin = async (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, loggedEmail, loggedPass).then(() => {
-      setIsAuth(true);
-      localStorage.setItem('isAuth', true);
+    signInWithEmailAndPassword(auth, loggedEmail, loggedPass)
+      .then(() => {
+        setIsAuth(true);
+        localStorage.setItem('isAuth', true);
 
-      navigate('/');
-    });
+        navigate('/');
+      })
+      .catch((error) => {
+        prikaziObavestenje(true, error.code);
+      });
   };
   return (
     <>
       <div className='text-center h-screen flex flex-col gap-4 items-center justify-center '>
+        <Obavestenje obavestenje={obavestenje} />
         <h1 className='font-light text-center my-2 text-4xl'>Sign in</h1>
         <hr className='w-20 my-8 mx-auto' />
         <form onSubmit={userLogin}>
