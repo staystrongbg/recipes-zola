@@ -1,15 +1,12 @@
-import { useRef, useEffect, useState } from 'react';
-import Input from '../components/Input';
+import { useState } from 'react';
 import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router';
-import { auth, db } from '../firebase-config';
+import { auth } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { signOut, onAuthStateChanged } from 'firebase/auth';
 import Obavestenje from './Obavestenje';
 
 const Signup = () => {
-  const { isAuth, setIsAuth, prikaziObavestenje, obavestenje } =
-    useGlobalContext();
+  const { setIsAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
 
   const navigate = useNavigate();
 
@@ -35,17 +32,14 @@ const Signup = () => {
       });
   };
 
-  // const logout = async () => {};
-
   return (
-    <div className='text-center h-screen flex flex-col gap-4 items-center justify-center '>
+    <div className='text-center my-3 h-screen flex flex-col gap-4 items-center  '>
+      <h1 className='text-4xl text-gray-100 shadow-md sm:text-3xl  font-bold my-2 bg-purple-800 px-3 py-1 rounded-lg inline-block'>
+        Recepti
+      </h1>
       <Obavestenje obavestenje={obavestenje} />
-      {/* // <div className='h-screen flex items-center justify-center relative'> */}
-      {/* <div className='flex-col px-12 py-12 max-w-3xl mx-auto shadow-xl rounded-2xl'> */}
-      <h1 className='font-light text-center my-2 text-4xl'>Register</h1>
-      <hr className='w-20 my-8 mx-auto' />
-
-      <form onSubmit={register}>
+      <h2 className='font-light text-center my-2 text-3xl'>Sign up</h2>
+      <form onSubmit={register} className='max-w-sm'>
         <label>Email</label>
         <input
           className={INPUT_STYLE}
@@ -53,7 +47,7 @@ const Signup = () => {
           placeholder='enter email'
           onChange={(e) => setRegisterEmail(e.target.value)}
           required
-        />{' '}
+        />
         <label>Password</label>
         <input
           className={INPUT_STYLE}
@@ -64,12 +58,11 @@ const Signup = () => {
         />
         <button
           type='submit'
-          className='bg-yellow-500 text-gray-800 font-medium text-xl inline-flex  w-full items-center px-4 py-4 rounded-xl'
+          className='bg-yellow-500 text-gray-800 font-medium text-xl  w-full items-center px-4 py-2 rounded-xl'
         >
           Register
         </button>
       </form>
-      {/* </div> */}
     </div>
   );
 };

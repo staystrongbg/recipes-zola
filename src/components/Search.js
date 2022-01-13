@@ -1,6 +1,6 @@
 export const Search = ({ handleChange }) => {
   return (
-    <div className='flex items-center gap-2 rounded-full bg-gray-50'>
+    <div className='flex items-center gap-2 rounded-full bg-gray-50 mt-3'>
       <span className='p-2 rounded-full bg-purple-800 h-15 w-15'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -16,7 +16,7 @@ export const Search = ({ handleChange }) => {
               )} */}
       <input
         type='text'
-        placeholder='Trazi'
+        placeholder='trazi...'
         className=' p-2 outline-none h-10 rounded-full transition-all'
         onChange={handleChange}
       />

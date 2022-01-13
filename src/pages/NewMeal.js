@@ -4,7 +4,6 @@ import Input from '../components/Input';
 import { auth, db } from '../firebase-config';
 import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NewMealForm = () => {
   const { isAuth, prikaziObavestenje } = useGlobalContext();
@@ -53,8 +52,8 @@ const NewMealForm = () => {
       placeholder: 'Broj Porcija...',
       label: 'Porcija',
       required: false,
-      min:0,
-      max:5
+      min: 0,
+      max: 5,
     },
     { type: 'text', placeholder: 'Autor...', label: 'Autor', required: true },
   ]);

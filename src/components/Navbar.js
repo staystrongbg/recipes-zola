@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useGlobalContext } from '../context';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase-config';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 
 const Navbar = ({ sidebar }) => {
   const navigate = useNavigate();
-  const { isAuth, setIsAuth } = useGlobalContext();
+  const { setIsAuth } = useGlobalContext();
   const [user, setUser] = useState(null);
 
   onAuthStateChanged(auth, (currentUser) => {
