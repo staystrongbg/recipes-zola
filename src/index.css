@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+  margin: 15px 0;
+}
+/* menu bar btn */
+.menu-btn-1 {
+  height: 28px;
+  width: 35px;
+  cursor: pointer;
+}
+
+.menu-btn-1 span,
+.menu-btn-1 span::before,
+.menu-btn-1 span::after {
+  background: rgb(220, 38, 38);
+  border-radius: 3px;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  margin-top: 12px;
+
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.menu-btn-1 span::before {
+  margin-top: -12px;
+}
+
+.menu-btn-1 span::after {
+  margin-top: 12px;
+}
+
+.menu-btn-1.active span {
+  background: transparent;
+}
+
+.menu-btn-1.active span::before {
+  margin-top: 0;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.menu-btn-1.active span::after {
+  margin-top: 0;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
