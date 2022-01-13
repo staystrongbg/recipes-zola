@@ -66,7 +66,7 @@ const Login = () => {
         <p>Other login methods</p>
         <span
           onClick={signInWithGoogle}
-          className='text-black  max-w-fit py-2 px-4 flex items-center justify-center gap-2'
+          className='text-black  max-w-fit py-2 px-4 flex items-center justify-center gap-2 cursor-pointer'
         >
           Google
           <svg
@@ -84,7 +84,7 @@ const Login = () => {
         </span>{' '}
         <span
           onClick={signInWithGithub}
-          className=' flex items-center justify-center  max-w-fit py-2 px-4 gap-2'
+          className=' flex items-center justify-center  max-w-fit py-2 px-4 gap-2 cursor-pointer'
         >
           Github
           <svg

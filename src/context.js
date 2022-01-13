@@ -1,4 +1,4 @@
-import { auth, provider } from './firebase-config';
+import { auth, provider, gitProvider } from './firebase-config';
 import { signInWithPopup } from 'firebase/auth';
 import { useContext, createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
@@ -24,7 +24,7 @@ const AppProvider = ({ children }) => {
   };
 
   const signInWithGithub = () => {
-    signInWithPopup(auth, provider).then((result) => {
+    signInWithPopup(auth, gitProvider).then((result) => {
       // localStorage.setItem('isAuth', true);
       setIsAuth(true);
       navigate('/');

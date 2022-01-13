@@ -11,8 +11,6 @@ import Details from './components/Details';
 import { AppProvider } from './context';
 import About from './pages/About';
 import Signup from './components/Signup';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase-config';
 
 function App() {
   const [meals, setMeals] = useState([]);
