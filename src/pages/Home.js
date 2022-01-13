@@ -11,7 +11,7 @@ import { Search } from '../components/Search';
 import { SelectCategory } from '../components/Search';
 
 const Home = () => {
-  console.log(process.env);
+  console.log(process.env.REACT_APP_RECEPTI_KEY);
   const { isAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
   const [meals, setMeals] = useState([]);
   const [result, setResult] = useState([]);
