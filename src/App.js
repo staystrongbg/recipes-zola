@@ -26,6 +26,10 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    document.body.style = sidebar && 'overflow: hidden';
+  }, [sidebar]);
+
   const handleSidebar = () => {
     setSidebar(!sidebar);
   };
@@ -33,7 +37,7 @@ function App() {
   return (
     <Router>
       <AppProvider>
-        <Navbar sidebar={sidebar} />
+        <Navbar sidebar={sidebar} setSidebar={setSidebar} />
         <div
           className={` ${
             sidebar ? 'ml-52' : 'ml-0'

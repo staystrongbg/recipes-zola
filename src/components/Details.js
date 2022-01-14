@@ -30,7 +30,7 @@ const Details = () => {
 
   const RECEPT_H = 'text-4xl font-bold text-gray-600 mb-10 ';
   const RECEPT_PRIPREMA = 'w-full';
-  const RECEPT_SASTOJCI = 'w-1/4 sm:w-3/4';
+  const RECEPT_SASTOJCI = 'w-1/4 sm:w-full';
   const H_CONTAINER = 'h-full flex items-center justify-center p-3';
   const HEADING =
     'text-2xl sm:text-xl text-center sm:leading-4    text-gray-50';

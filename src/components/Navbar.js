@@ -6,7 +6,7 @@ import { auth } from '../firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 
-const Navbar = ({ sidebar }) => {
+const Navbar = ({ sidebar, setSidebar }) => {
   const navigate = useNavigate();
   const { setIsAuth } = useGlobalContext();
   const [user, setUser] = useState(null);
@@ -24,60 +24,69 @@ const Navbar = ({ sidebar }) => {
   };
 
   return (
-    <nav
-      className={` w-52   fixed top-0 bottom-0   flex flex-col items-center justify-start translate-z-0  gap-10 py-4  text-gray-50  z-50 transition-transform bg-custom-800 ${
-        sidebar ? 'translate-x-0' : '-translate-x-full'
-      }`}
-    >
-      <Link to='/'>
-        <h1 className='text-4xl shadow-md sm:text-3xl  font-bold my-2 bg-purple-800 px-3 py-1 rounded-lg inline-block'>
-          Recepti
-        </h1>
-      </Link>
-
-      <div
-        className={`flex flex-col h-screen  gap-4 px-4 items-center  justify-between `}
+    <>
+      <nav
+        onClick={() => setSidebar(false)}
+        className={` w-52   fixed top-0 bottom-0   flex flex-col items-center justify-start translate-z-0  gap-10 py-4  text-gray-50  z-50 transition-transform bg-custom-800 ${
+          sidebar ? 'translate-x-0' : '-translate-x-full'
+        }`}
       >
-        <div className='flex flex-col items-center gap-5'>
-          <Link to='/'>Home</Link>
-          <Link to='/about' className='leading-4'>
-            O meni
-          </Link>
+        <Link to='/'>
+          <h1 className='text-4xl shadow-md sm:text-3xl  font-bold my-2 bg-purple-800 px-3 py-1 rounded-lg inline-block'>
+            Recepti
+          </h1>
+        </Link>
+
+        <div
+          className={`flex flex-col h-screen  gap-4 px-4 items-center  justify-between `}
+        >
+          <div className='flex flex-col items-center gap-5'>
+            <Link to='/'>Home</Link>
+            <Link to='/about' className='leading-4'>
+              O meni
+            </Link>
+          </div>
+          {!user ? (
+            <div className='flex flex-col gap-2 justify-center items-center'>
+              <p className=' text-gray-50 p-1 rounded-md bg-gray-600'>
+                Uloguj se,
+                <br /> ako zelis da dodas recept
+              </p>
+              <p className='leading-4 sm:hidden'>Hello, guest!</p>
+              <div>
+                <Link
+                  className='underline px-2 mx-1 py-1 whitespace-nowrap	'
+                  to='/login'
+                >
+                  Sign in
+                </Link>
+                <span>or</span>
+                <Link to='/register' className='underline mx-1 px-2 py-1'>
+                  Register
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className='flex items-center gap-2 text-sm'>
+              <div>
+                <ul className='px-4 py-2 cursor-pointer text-center'>
+                  <li>
+                    Signed in as <br /> <b>{user.email}</b>
+                  </li>
+                  <li onClick={signUserOut}>Sign out</li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
-        {!user ? (
-          <div className='flex flex-col gap-2 justify-center items-center'>
-            <p className=' text-gray-50 p-1 rounded-md bg-gray-600'>
-              Uloguj se,
-              <br /> ako zelis da dodas recept
-            </p>
-            <p className='leading-4 sm:hidden'>Hello, guest!</p>
-            <div>
-              <Link
-                className='underline px-2 mx-1 py-1 whitespace-nowrap	'
-                to='/login'
-              >
-                Sign in
-              </Link>
-              <span>or</span>
-              <Link to='/register' className='underline mx-1 px-2 py-1'>
-                Register
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className='flex items-center gap-2 text-sm'>
-            <div>
-              <ul className='px-4 py-2 cursor-pointer text-center'>
-                <li>
-                  Signed in as <br /> <b>{user.email}</b>
-                </li>
-                <li onClick={signUserOut}>Sign out</li>
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+      </nav>
+      {sidebar && (
+        <div
+          className=' overlay fixed w-screen h-screen top-0 bottom-0 left-0 right-0 bg-gray-800 bg-opacity-80 z-40'
+          onClick={() => setSidebar(false)}
+        ></div>
+      )}
+    </>
   );
 };
 
