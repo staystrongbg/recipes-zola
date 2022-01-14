@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import Details from './components/Details';
 import { AppProvider } from './context';
 import About from './pages/About';
-import Signup from './components/Signup';
+import Signup from './pages/Signup';
 
 function App() {
   const [meals, setMeals] = useState([]);

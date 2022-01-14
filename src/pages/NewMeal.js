@@ -96,6 +96,7 @@ const NewMealForm = () => {
             <option value='desert'>Desert</option>
             <option value='glavno'>Glavno jelo</option>
             <option value='napitak'>Napitak</option>
+            <option value='dodatak/salata'>Dodaci i salate</option>
           </select>
           <button
             type='submit'

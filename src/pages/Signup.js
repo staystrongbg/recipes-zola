@@ -3,7 +3,7 @@ import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router';
 import { auth } from '../firebase-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import Obavestenje from './Obavestenje';
+import Obavestenje from '../components/Obavestenje';
 
 const Signup = () => {
   const { setIsAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
