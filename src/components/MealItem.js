@@ -1,13 +1,33 @@
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase-config';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect, useRef, useState } from 'react';
 
 const MealItem = ({ meal, remove }) => {
   const [user] = useAuthState(auth);
+  const [trigger, setTrigger] = useState(null);
+  const [boxTop, setBoxTop] = useState(null);
+
+  const box = useRef();
+
+  function isScrolling() {
+    setTrigger(window.innerHeight / 2);
+    setBoxTop(box.current.getBoundingClientRect().top);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', isScrolling);
+    return () => window.removeEventListener('scroll', isScrolling);
+  }, []);
 
   return (
     <>
-      <div className='p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md text-center  hover:shadow-lg transition-all rounded-lg'>
+      <div
+        className={`p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md  text-center  hover:shadow-lg transition-all rounded-lg box ${
+          boxTop < trigger ? 'show' : ''
+        }`}
+        ref={box}
+      >
         {user && user.uid === meal.chef.id && (
           <span
             className='absolute cursor-pointer -top-2 -right-2'

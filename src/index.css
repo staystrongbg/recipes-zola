@@ -58,3 +58,20 @@ li {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
+.box {
+  transform: translateX(400%);
+  transition: transform 0.4s ease;
+}
+
+.box:nth-child(-n + 3) {
+  transform: translateX(0);
+}
+
+.box:nth-of-type(n + 4) {
+  transform: translateX(-400%);
+}
+
+.box.show {
+  transform: translateX(0);
+}

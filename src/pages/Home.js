@@ -16,6 +16,7 @@ const Home = () => {
   const [result, setResult] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('');
+
   const fetchData = async () => {
     const recipesCollections = collection(db, 'recipes');
     const data = await getDocs(recipesCollections);
@@ -52,6 +53,7 @@ const Home = () => {
   const handleSelect = (e) => {
     setSearchType(e.target.value);
   };
+
   return (
     <>
       <div className="bg-[url('../public/healthy-breakfast-ingredients-food-frame-803390.jpg')] bg-cover bg-fixed w-screen overflow-hidden min-h-screen relative">

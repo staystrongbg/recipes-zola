@@ -28,7 +28,7 @@ export const SelectCategory = ({ handleSelect }) => {
   return (
     <div>
       <select
-        className=' p-2 mt-3 text-gray-500 focus:outline-none h-10 rounded-md border-0 transition-all'
+        className=' p-2 mt-3 text-gray-500 bg-gray-50 focus:outline-none h-10 rounded-md border-0 transition-all'
         name='izaberi_kategoriju'
         id='izaberi-kategoriju'
         onChange={handleSelect}
