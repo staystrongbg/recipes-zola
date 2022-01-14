@@ -67,8 +67,8 @@ const Login = () => {
             Sign in
           </button>
         </form>
-        <p className='sm:hidden'>Other login methods</p>
-        <div className='flex sm:hidden'>
+        <p>Other login methods</p>
+        <div className='flex'>
           <span
             onClick={signInWithGoogle}
             className='text-black  max-w-fit py-2 px-4 flex items-center justify-center gap-2 cursor-pointer'

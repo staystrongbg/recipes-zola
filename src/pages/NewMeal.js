@@ -40,7 +40,12 @@ const NewMealForm = () => {
   };
 
   const [inputs] = useState([
-    { type: 'text', placeholder: 'Ime Jela...', label: 'Jelo', required: true },
+    {
+      type: 'text',
+      placeholder: 'Ime Jela...',
+      label: '*Jelo',
+      required: true,
+    },
     {
       type: 'text',
       placeholder: 'URL Slike...',
@@ -50,12 +55,12 @@ const NewMealForm = () => {
     {
       type: 'number',
       placeholder: 'Broj Porcija...',
-      label: 'Porcija',
+      label: '*Porcija',
       required: false,
       min: 0,
       max: 5,
     },
-    { type: 'text', placeholder: 'Autor...', label: 'Autor', required: true },
+    { type: 'text', placeholder: 'Autor...', label: '*Autor', required: true },
   ]);
 
   return (
@@ -76,22 +81,23 @@ const NewMealForm = () => {
               max={input.max && input.max.toString()}
             />
           ))}
-          <label>Priprema</label>
+          <label>*Priprema</label>
           <textarea
             placeholder='npr: korak1./korak2./...'
             className='w-full h-80 min-h-40 my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none rounded-md'
           ></textarea>
-          <label>Sastojci</label>
+          <label>*Sastojci</label>
 
           <textarea
             placeholder='npr: sastojak1,sastojak2...'
             className='w-full h-80 min-h-40 my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none rounded-md'
           ></textarea>
-          <label>Kategorija</label>
+          <label>*Kategorija</label>
           <select
             className='p-1 text-lg ml-5 mb-10'
             name='kategorija'
             id='kategorija'
+            required
           >
             <option value='desert'>Desert</option>
             <option value='glavno'>Glavno jelo</option>
