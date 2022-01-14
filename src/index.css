@@ -75,3 +75,15 @@ li {
 .box.show {
   transform: translateX(0);
 }
+
+@media only screen and (max-width: 639px) {
+  .box:nth-child(-n + 1) {
+    transform: translateX(0);
+  }
+  .box:nth-of-type(n + 2) {
+    transform: translateX(-600%);
+  }
+  .box.show {
+    transform: translateX(0);
+  }
+}
