@@ -12,24 +12,30 @@ const Signup = () => {
 
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const INPUT_STYLE =
     'my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none w-full h-10 rounded-md bg-transparent';
 
   const register = async (e) => {
     e.preventDefault();
-    const user = await createUserWithEmailAndPassword(
-      auth,
-      registerEmail,
-      registerPassword
-    )
-      .then(() => {
-        setIsAuth(true);
-        navigate('/');
-      })
-      .catch((error) => {
-        prikaziObavestenje(true, error.code);
-      });
+
+    if (confirmPassword === registerPassword) {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      )
+        .then(() => {
+          setIsAuth(true);
+          navigate('/');
+        })
+        .catch((error) => {
+          prikaziObavestenje(true, error.code);
+        });
+    } else {
+      prikaziObavestenje(true, "Passwords don't match");
+    }
   };
 
   return (
@@ -47,6 +53,7 @@ const Signup = () => {
           placeholder='enter email'
           onChange={(e) => setRegisterEmail(e.target.value)}
           required
+          autoFocus
         />
         <label>Password</label>
         <input
@@ -55,12 +62,19 @@ const Signup = () => {
           type='password'
           placeholder='enter password'
           required
+        />{' '}
+        <input
+          className={INPUT_STYLE}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          type='password'
+          placeholder='confirm password'
+          required
         />
         <button
           type='submit'
           className='bg-yellow-500 text-gray-800 font-medium text-xl  w-full items-center px-4 py-2 rounded-xl'
         >
-          Register
+          Sign up
         </button>
       </form>
     </div>

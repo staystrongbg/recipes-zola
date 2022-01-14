@@ -61,7 +61,7 @@ li {
 
 .box {
   transform: translateX(600%);
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .box:nth-child(-n + 3) {

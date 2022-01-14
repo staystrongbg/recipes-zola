@@ -23,7 +23,7 @@ const MealItem = ({ meal, remove }) => {
   return (
     <>
       <div
-        className={`p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md  text-center  hover:shadow-lg transition-all rounded-lg box ${
+        className={`p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md  text-center  hover:shadow-xl transition-all rounded-lg box ${
           boxTop < trigger ? 'show' : ''
         }`}
         ref={box}
@@ -53,7 +53,7 @@ const MealItem = ({ meal, remove }) => {
           {meal.chef.name}
         </p>{' '}
         {meal.kategorija && (
-          <p className='text-gray-100 bg-green-500 text-center inline-block my-2 text-base py-2 px-4 rounded-md'>
+          <p className='text-gray-50 bg-green-500 text-center inline-block my-2 text-base py-2 px-4 rounded-md'>
             {meal.kategorija || ''}
           </p>
         )}
@@ -65,7 +65,7 @@ const MealItem = ({ meal, remove }) => {
           />
           <div className='text-center py-2'>
             <Link to={`/${meal.id}`}>
-              <button className='bg-yellow-500 px-4 py-2 rounded-lg text-gray-700 w-4/5 font-medium mt-2'>
+              <button className='bg-yellow-500 px-4 py-2 rounded-lg text-gray-50 w-4/5 font-medium mt-2'>
                 Detalji
               </button>
             </Link>

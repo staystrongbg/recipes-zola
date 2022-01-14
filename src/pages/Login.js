@@ -50,6 +50,7 @@ const Login = () => {
             placeholder='enter email'
             onChange={(e) => setLoggedEmail(e.target.value)}
             required
+            autoFocus
           />
           <label>Password</label>
           <input
