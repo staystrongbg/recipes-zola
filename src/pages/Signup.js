@@ -60,7 +60,7 @@ const Signup = () => {
           className={INPUT_STYLE}
           onChange={(e) => setRegisterPassword(e.target.value)}
           type='password'
-          placeholder='enter password'
+          placeholder='at least 6-characters'
           required
         />{' '}
         <input

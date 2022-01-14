@@ -50,6 +50,7 @@ const Home = () => {
   const handleChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
+
   const handleSelect = (e) => {
     setSearchType(e.target.value);
   };

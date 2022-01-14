@@ -46,7 +46,7 @@ const Details = () => {
               style={{
                 position: 'absolute',
                 background:
-                  ' linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%)',
+                  ' linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.5) 50%)',
                 height: '100%',
                 width: '100%',
               }}
