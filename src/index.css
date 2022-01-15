@@ -76,6 +76,18 @@ li {
   transform: translateX(0);
 }
 
+@media only screen and (max-width: 1279px) {
+  .box:nth-child(-n + 2) {
+    transform: translateX(0);
+  }
+  .box:nth-of-type(n + 3) {
+    transform: translateX(-600%);
+  }
+  .box.show {
+    transform: translateX(0);
+  }
+}
+
 @media only screen and (max-width: 639px) {
   .box:nth-child(-n + 1) {
     transform: translateX(0);

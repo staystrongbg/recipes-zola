@@ -44,18 +44,13 @@ function App() {
           } w-full min-h-screen relative transition-all overflow-x-hidden`}
         >
           <span
-            title='Menu'
-            className='absolute top-3 left-6 z-50 flex items-center gap-1 cursor-pointer text-gray-200'
+            title='Menu Toggle'
+            className={`absolute top-3 left-6 z-50 flex items-center gap-1 cursor-pointer text-gray-200 menu-btn-1 ${
+              sidebar ? 'active' : ''
+            }`}
             onClick={handleSidebar}
           >
-            <div
-              className={` menu-btn-1 ${sidebar ? 'active' : ''} `}
-              onClick={handleSidebar}
-              title='Menu'
-            >
-              <span></span>
-            </div>
-            {/* <p className='px-1 py-0 text-gray-50'>MENU</p> */}
+            <span></span>
           </span>
           <Routes>
             {meals && (
