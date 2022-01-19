@@ -87,7 +87,6 @@ const NewMealForm = () => {
             className='w-full h-80 min-h-40 my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none rounded-md'
           ></textarea>
           <label>*Sastojci</label>
-
           <textarea
             placeholder='npr: sastojak1,sastojak2...'
             className='w-full h-80 min-h-40 my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none rounded-md'

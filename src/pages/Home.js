@@ -41,10 +41,14 @@ const Home = () => {
   }, [searchType]);
 
   const remove = async (id) => {
-    const recipe = doc(db, 'recipes', id);
-    await deleteDoc(recipe);
-    fetchData();
-    prikaziObavestenje(true, 'removed');
+    if (window.confirm('Da li zaista hoces da obrises recept?') == true) {
+      const recipe = doc(db, 'recipes', id);
+      await deleteDoc(recipe);
+      fetchData();
+      prikaziObavestenje(true, 'removed');
+    } else {
+      return;
+    }
   };
 
   const handleChange = (e) => {
@@ -63,7 +67,7 @@ const Home = () => {
           <SelectCategory handleSelect={handleSelect} />
           {isAuth && (
             <Link to='/new-meal '>
-              <button className='bg-orange-500 hover:shadow-lg transition-all px-4 py-2 rounded-lg mx-0 my-4 text-gray-50 uppercase tracking-widest font-medium'>
+              <button className='bg-orange-500 hover:bg-purple-700 transition-all px-4 py-2 rounded-lg mx-0 my-4 text-gray-50 uppercase tracking-widest font-medium'>
                 Novo Jelo
               </button>
             </Link>

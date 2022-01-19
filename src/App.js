@@ -56,7 +56,10 @@ function App() {
             {meals && (
               <>
                 <Route path='/' element={<Home sidebar={sidebar} />} />
-                <Route path='/:mealId' element={<Details />} />
+                <Route
+                  path='/:mealId'
+                  element={<Details fetchData={fetchData} />}
+                />
               </>
             )}
             <Route path='/new-meal' element={<NewMeal />} />

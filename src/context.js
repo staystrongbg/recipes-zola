@@ -30,9 +30,6 @@ const AppProvider = ({ children }) => {
       navigate('/');
     });
   };
-  //sign in methods
-
-  //register new user
 
   function prikaziObavestenje(bolean, msg) {
     setObavestenje({ show: bolean, type: msg });
