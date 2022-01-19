@@ -22,7 +22,8 @@ const Details = ({ fetchData }) => {
   const [priprema, setPriprema] = useState(null);
   const [editMeal, setEditMeal] = useState('');
 
-  const editFormRef = useRef();
+  const editFormRef = useRef(null);
+  const dummy = useRef(null);
   const recipesCollections = collection(db, 'recipes');
 
   async function getRecipes() {
@@ -42,6 +43,14 @@ const Details = ({ fetchData }) => {
   useEffect(() => {
     getRecipes();
   }, []);
+
+  useEffect(() => {
+    if (editMeal && dummy.current) {
+      dummy.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [editMeal]);
 
   //edit recipe
   const editRecipe = () => {
@@ -66,7 +75,7 @@ const Details = ({ fetchData }) => {
     })
       .then(() => setEditMeal(''))
       .then(() => getRecipes())
-      .then(() => prikaziObavestenje(true, '  '));
+      .then(() => prikaziObavestenje(true, 'Recept je izmenjen!'));
   };
   //edit ne moze da vidi svako!
   const RECEPT_H = 'text-4xl font-bold text-gray-600 mb-10 ';
@@ -167,7 +176,10 @@ const Details = ({ fetchData }) => {
         </div>
       )}
       {editMeal && (
-        <div className='text-center my-3 h-screen flex flex-col gap-4 items-center  '>
+        <div
+          className='text-center my-3 h-screen flex flex-col gap-4 items-center'
+          ref={dummy}
+        >
           <form
             className='max-w-full'
             ref={editFormRef}
