@@ -80,11 +80,11 @@ input[type='number'] {
   transition: transform 0.5s ease;
 }
 
-.box:nth-child(-n + 3) {
+.box:nth-child(-n + 5) {
   transform: translateX(0);
 }
 
-.box:nth-of-type(n + 4) {
+.box:nth-of-type(n + 6) {
   transform: translateX(-600%);
 }
 
