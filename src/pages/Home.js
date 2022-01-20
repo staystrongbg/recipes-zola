@@ -9,6 +9,7 @@ import Loading from '../components/Loading';
 import Obavestenje from '../components/Obavestenje';
 import { Search } from '../components/Search';
 import { SelectCategory } from '../components/Search';
+import Leaves from '../components/Leaves';
 
 const Home = () => {
   const { isAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
@@ -61,13 +62,21 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[url('../public/healthy-breakfast-ingredients-food-frame-803390.jpg')] bg-cover bg-fixed w-screen overflow-hidden min-h-screen relative">
+      <div className="bg-[url('../public/pexels-lukas-349610.jpg')] bg-cover bg-fixed absolute top-0 left-0 text-gray-400  w-screen min-h-screen relative">
+        <div
+          style={{
+            position: 'absolute',
+            background: 'rgba(225, 255, 235, 0.2  )',
+            height: '100%',
+            width: '100%',
+          }}
+        ></div>
         <div className='relative flex items-center px-4 justify-evenly  w-full  m-auto mb-10 sm:flex-col '>
           <Obavestenje obavestenje={obavestenje} />
           <SelectCategory handleSelect={handleSelect} />
           {isAuth && (
             <Link to='/new-meal '>
-              <button className='bg-orange-500 hover:bg-purple-700 transition-all px-4 py-2 rounded-lg mx-0 my-4 text-gray-50 uppercase tracking-widest font-medium'>
+              <button className='bg-orange-500 hover:bg-orange-700 transition-all px-4 py-2 rounded-lg mx-0 my-4 text-gray-50 uppercase tracking-widest font-medium'>
                 Novo Jelo
               </button>
             </Link>

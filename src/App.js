@@ -41,7 +41,7 @@ function App() {
         <div
           className={` ${
             sidebar ? 'ml-52' : 'ml-0'
-          } w-full min-h-screen relative transition-all overflow-x-hidden`}
+          } w-full min-h-screen relative transition-all overflow-x-hidden bg-slate-200`}
         >
           <span
             title='Menu Toggle'

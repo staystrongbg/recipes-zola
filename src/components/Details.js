@@ -107,7 +107,7 @@ const Details = ({ fetchData }) => {
               alt=''
             />
             <div className='absolute bottom-3 left-2'>
-              <h1 className=' text-9xl text-gray-50 sm:text-5xl font-bold drop-shadow-lg capitalize text-lwdt my-10 tiny:ml-3'>
+              <h1 className=' text-9xl text-gray-50 sm:text-5xl font-bold drop-shadow-lg capitalize text-left my-10 tiny:ml-3'>
                 {meal.name}
               </h1>
               <div className='flex items-center ml-2 sm:ml-0 justify-start tiny:ml-3'>
@@ -151,7 +151,7 @@ const Details = ({ fetchData }) => {
                   {priprema &&
                     priprema.map((p, idx) => (
                       <p key={idx} className='mb-8 text-lg '>
-                        <b className='text-2xl py-1 px-2 bg-red-300 text-gray-50'>
+                        <b className='text-2xl py-1 px-2 bg-red-700 text-gray-50'>
                           {idx + 1}.
                         </b>{' '}
                         {p}
