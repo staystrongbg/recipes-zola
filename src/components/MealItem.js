@@ -23,7 +23,7 @@ const MealItem = ({ meal, remove }) => {
   return (
     <>
       <div
-        className={`p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md  text-center  shadow-xl transition-all rounded-lg box flex items-end justify-center ${
+        className={`p-4 bg-yellow-100 mx-4 my-4 relative  max-w-md  text-center shadow-xl transition-all rounded-lg box flex items-end justify-center ${
           boxTop < trigger ? 'show' : ''
         }`}
         style={{
@@ -68,6 +68,7 @@ const MealItem = ({ meal, remove }) => {
             borderBottomRightRadius: '250px 15px',
             borderBottomLeftRadius: '250px 15px',
             borderTopLeftRadius: '250px 15px',
+            borderTopRighttRadius: '250px 15px',
           }}
         >
           <h3 className='text-2xl text-center my-2 text-gray-900 capitalize font-bold'>
@@ -76,7 +77,10 @@ const MealItem = ({ meal, remove }) => {
               : meal.name}
           </h3>
           {meal.kategorija === 'napitak' ? (
-            <span className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'>
+            <span
+              className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'
+              title={meal.kategorija}
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='30'
@@ -87,7 +91,10 @@ const MealItem = ({ meal, remove }) => {
               </svg>
             </span>
           ) : meal.kategorija === 'glavno' ? (
-            <span className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'>
+            <span
+              className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'
+              title={meal.kategorija}
+            >
               <svg
                 width='30'
                 height='30'
@@ -99,7 +106,10 @@ const MealItem = ({ meal, remove }) => {
               </svg>
             </span>
           ) : meal.kategorija === 'desert' ? (
-            <span className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'>
+            <span
+              className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'
+              title={meal.kategorija}
+            >
               <svg
                 width='30'
                 height='30'
@@ -111,7 +121,10 @@ const MealItem = ({ meal, remove }) => {
               </svg>
             </span>
           ) : (
-            <span className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'>
+            <span
+              className='absolute -top-2 -right-2 rotate-12 rounded-full bg-green-500 p-2'
+              title={meal.kategorija}
+            >
               <svg
                 width='30'
                 height='30  '
@@ -124,7 +137,8 @@ const MealItem = ({ meal, remove }) => {
             </span>
           )}
           <p className='text-gray-500 text-center my-2 text-base'>
-            {meal.chef.name}
+            Autor |{' '}
+            <span className='text-gray-600 font-bold'> {meal.chef.name}</span>
           </p>
           <div className='text-center py-2'>
             <Link to={`/${meal.id}`}>

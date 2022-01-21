@@ -62,7 +62,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[url('../public/pexels-lukas-349610.jpg')] bg-cover bg-fixed absolute top-0 left-0 text-gray-400  w-screen min-h-screen relative">
+      <div className="bg-[url('../public/pexels-lukas-349610.jpg')] bg-cover bg-fixed  top-0 left-0 text-gray-400  w-screen min-h-screen relative">
         <div
           style={{
             position: 'absolute',
@@ -83,7 +83,7 @@ const Home = () => {
           )}
           <Search handleChange={handleChange} />
         </div>
-        <div className='flex flex-wrap justify-center items-center w-11/12 sm:w-full m-auto'>
+        <div className='flex flex-wrap justify-center items-center w-11/12 sm:w-full m-auto gap-16'>
           {result.length > 0 ? (
             result.map((meal) => (
               <MealItem meal={meal} remove={remove} key={meal.id} />

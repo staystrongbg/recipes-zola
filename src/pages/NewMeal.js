@@ -65,7 +65,7 @@ const NewMealForm = () => {
   ]);
 
   return (
-    <div className="bg-[url('../public/pexels-lukas-349610.jpg')] bg-cover bg-fixed absolute top-0 left-0 text-gray-400  w-screen min-h-screen">
+    <div className="bg-[url('../public/pexels-lukas-349610.jpg')] bg-cover bg-fixed absolute top-0 left-0 text-gray-800  w-screen min-h-screen">
       <div className='h-full flex items-center justify-center relative my-40'>
         <div
           className='flex-col px-12 py-12 max-w-3xl mx-auto shadow-xl rounded-2xl flex items-start'
@@ -111,7 +111,7 @@ const NewMealForm = () => {
             </select>
             <button
               type='submit'
-              className='bg-yellow-500 text-gray-500 font-medium text-xl inline-flex  w-full items-center px-4 py-4 rounded-xl'
+              className='bg-yellow-500 text-gray-800 font-medium text-xl inline-flex  w-full items-center px-4 py-4 rounded-xl'
             >
               Dodaj recept
             </button>
