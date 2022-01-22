@@ -11,7 +11,6 @@ import Details from './components/Details';
 import { AppProvider } from './context';
 import About from './pages/About';
 import Signup from './pages/Signup';
-import Error from './pages/Error';
 
 function App() {
   const [meals, setMeals] = useState([]);
@@ -67,7 +66,14 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Signup />} />
             <Route path='/about' element={<About />} />
-            <Route path='*' element={<Error />} />
+            <Route
+              path='*'
+              element={
+                <main style={{ padding: '1rem' }}>
+                  <p>There's nothing here!</p>
+                </main>
+              }
+            />
           </Routes>
           {/* <Footer /> */}
         </div>
