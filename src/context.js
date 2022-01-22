@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
   //sign in methods
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
-      // localStorage.setItem('isAuth', true);
+      localStorage.setItem('isAuth', true);
       setIsAuth(true);
       navigate('/');
     });
@@ -25,7 +25,7 @@ const AppProvider = ({ children }) => {
 
   const signInWithGithub = () => {
     signInWithPopup(auth, gitProvider).then((result) => {
-      // localStorage.setItem('isAuth', true);
+      localStorage.setItem('isAuth', true);
       setIsAuth(true);
       navigate('/');
     });
