@@ -11,7 +11,7 @@ import Details from './components/Details';
 import { AppProvider } from './context';
 import About from './pages/About';
 import Signup from './pages/Signup';
-import Error from './components/Error';
+import Error from './pages/Error';
 
 function App() {
   const [meals, setMeals] = useState([]);
