@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router';
 import { auth } from '../firebase-config';
@@ -6,9 +6,16 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Obavestenje from '../components/Obavestenje';
 
 const Signup = () => {
-  const { setIsAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
+  const { setIsAuth, prikaziObavestenje, obavestenje, isAuth } =
+    useGlobalContext();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/');
+    }
+  }, []);
 
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');

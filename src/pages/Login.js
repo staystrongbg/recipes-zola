@@ -1,5 +1,5 @@
 import { useGlobalContext } from '../context';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router';
 import { auth } from '../firebase-config';
@@ -7,7 +7,8 @@ import Obavestenje from '../components/Obavestenje';
 
 const Login = () => {
   const { prikaziObavestenje, obavestenje } = useGlobalContext();
-  const { signInWithGoogle, signInWithGithub, setIsAuth } = useGlobalContext();
+  const { signInWithGoogle, signInWithGithub, setIsAuth, isAuth } =
+    useGlobalContext();
   const [loggedEmail, setLoggedEmail] = useState('');
   const [loggedPass, setLoggedPass] = useState('');
 
@@ -15,6 +16,12 @@ const Login = () => {
   if (auth.email) {
     navigate('/');
   }
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/');
+    }
+  }, []);
 
   const INPUT_STYLE =
     'my-2 p-2 border border-gray-300 focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-50 focus:outline-none w-full h-10 rounded-md bg-transparent';
