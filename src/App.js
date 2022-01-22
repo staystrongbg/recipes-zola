@@ -54,7 +54,6 @@ function App() {
             <span></span>
           </span>
           <Routes>
-            <Route path='*' element={<Error />} />
             {meals && (
               <>
                 <Route path='/' element={<Home sidebar={sidebar} />} />
@@ -68,6 +67,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Signup />} />
             <Route path='/about' element={<About />} />
+            <Route path='*' element={<Error />} />
           </Routes>
           {/* <Footer /> */}
         </div>
