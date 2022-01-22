@@ -9,7 +9,6 @@ import Loading from '../components/Loading';
 import Obavestenje from '../components/Obavestenje';
 import { Search } from '../components/Search';
 import { SelectCategory } from '../components/Search';
-import Leaves from '../components/Leaves';
 
 const Home = () => {
   const { isAuth, prikaziObavestenje, obavestenje } = useGlobalContext();
