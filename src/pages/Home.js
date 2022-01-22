@@ -66,7 +66,8 @@ const Home = () => {
         <div
           style={{
             position: 'absolute',
-            background: 'rgba(225, 255, 235, 0.2  )',
+            background:
+              'linear-gradient( to bottom,rgba(235,235,235,0.1), rgba(235,235,235,0.8))',
             height: '100%',
             width: '100%',
           }}
