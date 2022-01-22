@@ -14,7 +14,7 @@ const NewMealForm = () => {
     if (!isAuth) {
       navigate('/');
     }
-  }, []);
+  });
 
   const formRef = useRef();
   const recipesCollections = collection(db, 'recipes');
