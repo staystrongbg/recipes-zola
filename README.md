@@ -1,5 +1,5 @@
 ## Live preview
 
-https://recepti-la-zola.netlify.app/
+https://devox-recepti.netlify.app/
 
 ```firebase, tailwindcss, react```
